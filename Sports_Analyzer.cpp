@@ -7,7 +7,6 @@ using namespace std;
 
 int query(int score)
 {
-	score = 0;
 	char choice;
 	string Q[] = { "Do you support this team?",
 		"Do you have a favorite player in this team?",
@@ -28,12 +27,23 @@ int main()
 {
 	
 	int team_1 = 0, team_2 = 0;
-	cout << "Please fill in the below forms:\n\n";
-	cout << "Answer the following for team 1 (Y/N):\n";
-	team_1 = query(team_1);
-	cout << "\n\nAnswer the following for team 2 (Y/N):\n";
-	team_2 = query(team_2);
-
+	string name;
+	for (int k = 0; k < 5; k++)
+	{
+		system("cls");
+		cout << "Collecting data from user " << k << ":" << endl;
+		cout << "What is your name?";
+		cin >> name;
+		cout <<name<<",please fill in the below forms:\n\n";
+		cout << "Answer the following for team 1 (Y/N):\n";
+		team_1 = query(team_1);
+		cout << "\n\nAnswer the following for team 2 (Y/N):\n";
+		team_2 = query(team_2);
+		system("pause");
+	}
+	cout << "To display the results,press any key";
+	cin.ignore();
+	system("cls");
 	cout << "\n\n\nMy prediction:\n";
 	if (team_1 > team_2) cout << "I think team 1 has a better chance of winning.\n\n";
 	else if (team_2 > team_1) cout << "I think team 2 has a better chance of winning.\n\n";
